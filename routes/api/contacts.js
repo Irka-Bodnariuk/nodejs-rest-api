@@ -1,12 +1,19 @@
 const express = require("express");
 
 const {
-  ctrl: { getAll, getById, add, deleteByID, updateByID, updateStatusContact },
+  ctrlContacts: {
+    getAll,
+    getById,
+    add,
+    deleteByID,
+    updateByID,
+    updateStatusContact,
+  },
 } = require("../../controllers");
 
 const { validateBody, isValidId } = require("../../middlewares");
 
-const { schemas } = require("../../models");
+const { schemas } = require("../../models/contact");
 
 const router = express.Router();
 
