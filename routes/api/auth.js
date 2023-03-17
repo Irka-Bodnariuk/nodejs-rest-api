@@ -12,12 +12,14 @@ const {
     logout,
     updateSubscription,
     updateAvatar,
+    verifyEmail,
   },
 } = require("../../controllers");
 
 const router = express.Router();
 
 router.post("/register", validateBody(schemas.registerSchema), register); // signup
+router.get("/verify/:verificationToken", verifyEmail);
 
 router.post("/login", validateBody(schemas.loginSchema), login); // signin
 
