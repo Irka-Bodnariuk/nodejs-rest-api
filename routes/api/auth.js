@@ -12,12 +12,16 @@ const {
     logout,
     updateSubscription,
     updateAvatar,
+    verifyEmail,
+    resendVerifyEmail,
   },
 } = require("../../controllers");
 
 const router = express.Router();
 
 router.post("/register", validateBody(schemas.registerSchema), register); // signup
+router.get("/verify/:verificationToken", verifyEmail);
+router.post("/verify", validateBody(schemas.emailSchema), resendVerifyEmail);
 
 router.post("/login", validateBody(schemas.loginSchema), login); // signin
 
